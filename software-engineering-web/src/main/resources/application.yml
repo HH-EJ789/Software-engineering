@@ -8,5 +8,3 @@ spring:
       - classpath:sql/department.sql
       - classpath:sql/employee.sql
     initialization-mode: always
-
-#这是一个测试
