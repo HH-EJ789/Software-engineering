@@ -8,3 +8,5 @@ spring:
       - classpath:sql/department.sql
       - classpath:sql/employee.sql
     initialization-mode: always
+
+#hej
