@@ -5,10 +5,5 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/software_engineering?serverTimezone=UTC
     schema:
-      - classpath:sql/department.sql
-      - classpath:sql/employee.sql
+      - classpath:sql/model.sql
     initialization-mode: always
-
-#hej
-#dev1
-#dev11
