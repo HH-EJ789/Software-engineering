@@ -15,4 +15,5 @@ public class Order {
     private String order_remark;
     private String address_id;
     private int is_cancel;
+    
 }
