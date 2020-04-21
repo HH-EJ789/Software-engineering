@@ -35,7 +35,7 @@ CREATE TABLE `Member` (
 `member_name` char(20) NULL COMMENT '用户名',
 PRIMARY KEY (`id`, `member_id`) 
 );
-CREATE TABLE `Goods ` (
+CREATE TABLE `Goods` (
 `id` int NOT NULL COMMENT '主键',
 `goods_id` int NOT NULL COMMENT '商品 id',
 `goods_name` char(20) NULL COMMENT '商品名',
