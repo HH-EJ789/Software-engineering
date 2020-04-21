@@ -93,7 +93,7 @@ PRIMARY KEY (`id`)
 ALTER TABLE `Order` ADD CONSTRAINT `fk_Order_ReceiveGoodsAddress_1` FOREIGN KEY (`address_id`) REFERENCES `ReceiveGoodsAddress` (`id`);
 ALTER TABLE `Order` ADD CONSTRAINT `fk_Order_BuyGoods_1` FOREIGN KEY (`order_num`) REFERENCES `BuyGoods` (`order_num`);
 ALTER TABLE `Member` ADD CONSTRAINT `fk_Member_ReceiveGoodsAddress_1` FOREIGN KEY (`member_id`) REFERENCES `ReceiveGoodsAddress` (`member_id`);
-ALTER TABLE `Goods ` ADD CONSTRAINT `fk_Goods _BuyGoods_1` FOREIGN KEY (`goods_id`) REFERENCES `BuyGoods` (`goods_id`);
+ALTER TABLE `Goods` ADD CONSTRAINT `fk_Goods _BuyGoods_1` FOREIGN KEY (`goods_id`) REFERENCES `BuyGoods` (`goods_id`);
 ALTER TABLE `Shop` ADD CONSTRAINT `fk_Shop_Goods _1` FOREIGN KEY (`shop_id`) REFERENCES `Goods ` (`shop_id`);
 ALTER TABLE `Member` ADD CONSTRAINT `fk_Member_Coupon_1` FOREIGN KEY (`member_id`) REFERENCES `Coupon` (`member_id`);
 ALTER TABLE `Coupon` ADD CONSTRAINT `fk_Coupon_Order_1` FOREIGN KEY (`coupon_id`) REFERENCES `Order` (`coupon_id`);
