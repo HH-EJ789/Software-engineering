@@ -1,6 +1,6 @@
 package com.hhej789.softwareengineering.interceptor;
 
-import com.hhej789.softwareengineering.mapper.MemberMapper;
+import com.hhej789.softwareengineering.mapper.MemberMapper_hej;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -20,10 +20,10 @@ import java.util.concurrent.TimeUnit;
  * @Date 2020/4/23 21:31
  * @Version 1.0
  */
-public class AuthInterceptor implements HandlerInterceptor {
+public class AuthInterceptor_hej implements HandlerInterceptor {
 
     @Autowired
-    MemberMapper memberMapper;
+    MemberMapper_hej memberMapperHej;
 
     @Autowired
     RedisTemplate redisTemplate;

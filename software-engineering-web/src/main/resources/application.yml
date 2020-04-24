@@ -9,7 +9,7 @@ spring:
 #    initialization-mode: always
   redis:
     database: 0
-    password: root
+    password:
     port: 6379
     host: localhost
     lettuce:

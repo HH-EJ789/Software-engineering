@@ -1,7 +1,7 @@
 package com.hhej789.softwareengineering.controller;
 
-import com.hhej789.softwareengineering.mapper.MemberMapper;
-import com.hhej789.softwareengineering.tools.MD5Util;
+import com.hhej789.softwareengineering.mapper.MemberMapper_hej;
+import com.hhej789.softwareengineering.tools.MD5Util_hej;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -24,10 +24,10 @@ import java.util.concurrent.TimeUnit;
  */
 
 @RestController
-public class MemberController {
+public class MemberController_hej {
 
     @Autowired
-    MemberMapper memberMapper;
+    MemberMapper_hej memberMapperHej;
     @Autowired
     RedisTemplate redisTemplate;
 
@@ -36,8 +36,8 @@ public class MemberController {
 
         HashMap map = new HashMap();
 
-        if(Objects.isNull(memberMapper.getUser(member_id))) {
-            memberMapper.register(member_id, MD5Util.getMD5(member_id, password));
+        if(Objects.isNull(memberMapperHej.getUser(member_id))) {
+            memberMapperHej.register(member_id, MD5Util_hej.getMD5(member_id, password));
             System.out.println("注册成功！");
             map.put("msg", "注册成功！");
         }
@@ -52,9 +52,9 @@ public class MemberController {
 
         HashMap map = new HashMap();
 
-        String md5 = MD5Util.getMD5(member_id, password);
+        String md5 = MD5Util_hej.getMD5(member_id, password);
 
-        if(memberMapper.getUser(member_id).getPassword().equals(md5)) {
+        if(memberMapperHej.getUser(member_id).getPassword().equals(md5)) {
             String token = UUID.randomUUID().toString();
             ValueOperations ops = redisTemplate.opsForValue();
             if(Objects.isNull(ops.get(member_id))) {
@@ -78,7 +78,7 @@ public class MemberController {
 
         HashMap map = new HashMap();
 
-        Boolean loginOut = memberMapper.loginOut(token);
+        Boolean loginOut = memberMapperHej.loginOut(token);
         if(loginOut){
             map.put("msg","注销成功！");
         }

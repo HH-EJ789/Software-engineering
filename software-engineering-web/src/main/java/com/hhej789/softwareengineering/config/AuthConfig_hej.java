@@ -1,6 +1,6 @@
 package com.hhej789.softwareengineering.config;
 
-import com.hhej789.softwareengineering.interceptor.AuthInterceptor;
+import com.hhej789.softwareengineering.interceptor.AuthInterceptor_hej;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -15,11 +15,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 
 @Configuration
-public class AuthConfig implements WebMvcConfigurer {
+public class AuthConfig_hej implements WebMvcConfigurer {
 
     @Bean
-    public AuthInterceptor initAuthInterceptor() {
-        return new AuthInterceptor();
+    public AuthInterceptor_hej initAuthInterceptor() {
+        return new AuthInterceptor_hej();
     }
 
     @Override

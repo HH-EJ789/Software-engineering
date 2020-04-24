@@ -9,7 +9,7 @@ import org.springframework.util.DigestUtils;
  * @Date 2020/4/23 22:37
  * @Version 1.0
  */
-public class MD5Util {
+public class MD5Util_hej {
 
     //盐，用于混交md5
     private static String salt = "asdwqAsd12_qS";

@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
  */
 @Mapper
 @Repository
-public interface MemberMapper {
+public interface MemberMapper_hej {
 
     @Insert("insert into Member (member_id, password) values (#{member_id}, #{password})")
     public void register(String member_id, String password);
