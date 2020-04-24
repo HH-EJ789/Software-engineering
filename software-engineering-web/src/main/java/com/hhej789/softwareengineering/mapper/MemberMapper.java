@@ -1,5 +1,8 @@
 package com.hhej789.softwareengineering.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
 /**
  * @ClassName MemberMapper
  * @Description TODO
@@ -7,5 +10,7 @@ package com.hhej789.softwareengineering.mapper;
  * @Date 2020/4/23 10:37
  * @Version 1.0
  */
-public class MemberMapper {
+@Mapper
+@Repository
+public interface MemberMapper {
 }
