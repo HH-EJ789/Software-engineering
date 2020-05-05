@@ -24,6 +24,6 @@ public class AuthConfig_hej implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(initAuthInterceptor()).addPathPatterns("").excludePathPatterns("/*");
+        registry.addInterceptor(initAuthInterceptor()).addPathPatterns("/test").excludePathPatterns("/login");
     }
 }

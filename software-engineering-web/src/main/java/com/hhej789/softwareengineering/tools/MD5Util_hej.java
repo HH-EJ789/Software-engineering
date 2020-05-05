@@ -17,8 +17,8 @@ public class MD5Util_hej {
     /**
      * 生成md5
      */
-    public static String getMD5(String username, String password) {
-        String base = username + "/" + password + "/" + salt;
+    public static String getMD5(String member_name, String password) {
+        String base = member_name + "/" + password + "/" + salt;
         String md5 = DigestUtils.md5DigestAsHex(base.getBytes());
         System.out.println("md5盐加密");
         return md5;

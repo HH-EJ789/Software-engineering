@@ -15,19 +15,20 @@ PRIMARY KEY (`sort_id`)
 );
 CREATE TABLE `Info` (
 `info_id` int(6) ZEROFILL NOT NULL AUTO_INCREMENT COMMENT '信息 id',
-`sort_id` int(4) ZEROFILL NULL COMMENT '信息分类 id',
-`public_member_id` int(10) ZEROFILL NULL COMMENT '发布用户 id',
-`good_id` int(5) ZEROFILL NULL COMMENT '物品 id',
+`sort_id` int(4) NULL COMMENT '信息分类 id',
+`public_member_id` int(10) NULL COMMENT '发布用户 id',
+`good_id` int(5) NULL COMMENT '物品 id',
 `status` tinyint NULL DEFAULT 0 COMMENT '发布状态（发布中0，交换完成1，取消交换-1）',
+`public_date` char(50) NULL COMMENT '发布日期',
 `scan_num` int NULL COMMENT '浏览量',
-`deal_member_id` int(10) ZEROFILL NULL COMMENT '成交用户 id',
+`deal_member_id` int(10) NULL COMMENT '成交用户 id',
 PRIMARY KEY (`info_id`) 
 );
 CREATE TABLE `RequestExchange` (
 `request_id` int(8) ZEROFILL NOT NULL AUTO_INCREMENT COMMENT '请求 id',
-`request_member_id` int(10) ZEROFILL NULL COMMENT '请求用户 id',
-`info_id` int(6) ZEROFILL NULL COMMENT '信息 id',
-`exchange_good_id` int(5) ZEROFILL NULL COMMENT '交换物品 id',
+`request_member_id` int(10) NULL COMMENT '请求用户 id',
+`info_id` int(6) NULL COMMENT '信息 id',
+`exchange_good_id` int(5) NULL COMMENT '交换物品 id',
 `status` tinyint NULL DEFAULT 0 COMMENT '请求状态（请求中0，成交1，拒绝-1）',
 PRIMARY KEY (`request_id`) 
 );
@@ -41,14 +42,13 @@ CREATE TABLE `Goods` (
 `good_id` int(5) ZEROFILL NOT NULL AUTO_INCREMENT COMMENT '物品 id',
 `good_name` char(20) NULL COMMENT '物品名称',
 `good_description` char(200) NULL COMMENT '物品描述',
+`owner_id` int(10) NULL COMMENT '所属用户 id',
+`status` tinyint NULL DEFAULT 0 COMMENT '状态（默认0，已交换1）',
 PRIMARY KEY (`good_id`) 
 );
-
-ALTER TABLE `RequestExchange` ADD CONSTRAINT `fk_request_exchange_Info_1` FOREIGN KEY (`info_id`) REFERENCES `Info` (`info_id`);
-ALTER TABLE `Info` ADD CONSTRAINT `fk_Info_Member_1` FOREIGN KEY (`public_member_id`) REFERENCES `Member` (`member_id`);
-ALTER TABLE `Info` ADD CONSTRAINT `fk_Info_Member_2` FOREIGN KEY (`deal_member_id`) REFERENCES `Member` (`member_id`);
-ALTER TABLE `Info` ADD CONSTRAINT `fk_Info_InfoSort_1` FOREIGN KEY (`sort_id`) REFERENCES `InfoSort` (`sort_id`);
-ALTER TABLE `RequestExchange` ADD CONSTRAINT `fk_request_exchange_Member_1` FOREIGN KEY (`request_member_id`) REFERENCES `Member` (`member_id`);
-ALTER TABLE `Info` ADD CONSTRAINT `fk_Info_Goods_1` FOREIGN KEY (`good_id`) REFERENCES `Goods` (`good_id`);
-ALTER TABLE `RequestExchange` ADD CONSTRAINT `fk_RequestExchange_Goods_1` FOREIGN KEY (`exchange_good_id`) REFERENCES `Goods` (`good_id`);
-
+CREATE TABLE `Image` (
+`img_id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT COMMENT '图片 id',
+`good_id` int(5) ZEROFILL NULL COMMENT '商品 id',
+`url` char(50) NULL COMMENT '统一资源定位',
+PRIMARY KEY (`img_id`) 
+);

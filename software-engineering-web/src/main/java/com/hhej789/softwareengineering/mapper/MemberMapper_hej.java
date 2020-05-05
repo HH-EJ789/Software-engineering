@@ -18,19 +18,14 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MemberMapper_hej {
 
-    @Insert("insert into Member (member_id, password) values (#{member_id}, #{password})")
-    public void register(String member_id, String password);
+    @Insert("insert into Member (password, member_name, wechat_id, phone_num, register_time) " +
+                        "values (#{password}, #{member_name}, #{wechat_id}, #{phone_num}, DATE_FORMAT(now(),\"%Y-%m-%d %T\"))")
+    public void register(String password, String member_name, String wechat_id, String phone_num);
 
-    @Select("select * from Member where member_id=#{member_id}")
-    public Member getUser(String member_id);
-
-    @Update("update Member set token=#{token} where member_id=#{member_id}")
-    public void setToken(String member_id, String token);
+    @Select("select * from Member where member_name=#{member_name}")
+    public Member getUser(String member_name);
 
     @Update("update Member set token=null where token=#{token}")
     public boolean loginOut(String token);
-
-    @Select("select * from Member where token=#{token}")
-    public Member getLoinStatus(String token);
 
 }

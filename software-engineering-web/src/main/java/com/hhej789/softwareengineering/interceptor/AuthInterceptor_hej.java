@@ -1,6 +1,7 @@
 package com.hhej789.softwareengineering.interceptor;
 
 import com.hhej789.softwareengineering.mapper.MemberMapper_hej;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -30,17 +31,23 @@ public class AuthInterceptor_hej implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
+        JSONObject o = new JSONObject();
+
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
+
         String token = request.getHeader("token");
         if(StringUtils.isEmpty(token)) {
-            response.getWriter().println("用户未登录，请登陆后操作！");
+            o.put("msg", "用户未登录，请登陆后操作！");
+            response.getWriter().append(o.toString());
             return false;
         }
         ValueOperations ops = redisTemplate.opsForValue();
         Object loginStatus = ops.get(token);
         if(Objects.isNull(loginStatus)) {
-            response.getWriter().println("token错误，请查看！");
+            o.put("msg", "token错误，请查看！");
+            response.getWriter().append(o.toString());
             return false;
         }
         redisTemplate.expire(token, 2, TimeUnit.MINUTES);

@@ -1,17 +1,17 @@
 spring:
   datasource:
     username: root
-    password: root
+    password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/software_engineering?serverTimezone=UTC
+    url: jdbc:mysql://101.132.140.236:3306/software_engineering?serverTimezone=UTC
 #    schema:
 #      - classpath:sql/model.sql
 #    initialization-mode: always
   redis:
     database: 0
-    password:
+    password: root
     port: 6379
-    host: localhost
+    host: 101.132.140.236
     lettuce:
       pool:
         min-idle: 5
