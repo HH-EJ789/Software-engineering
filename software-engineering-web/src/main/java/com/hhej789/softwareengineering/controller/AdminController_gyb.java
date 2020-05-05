@@ -21,8 +21,11 @@ import java.util.concurrent.TimeUnit;
  */
 @Controller
 public class AdminController_gyb {
+
     @Autowired
     public AdminService_gyb adminService_gyb;
+
+    @Autowired
     public AdminMapper_gyb adminMapper_gyb;
 
 
