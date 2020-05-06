@@ -15,5 +15,6 @@ public class Goods {
     private Integer good_id;
     private String good_name;
     private String good_description;
-
+    private Integer owner_id;
+    private Integer status;
 }

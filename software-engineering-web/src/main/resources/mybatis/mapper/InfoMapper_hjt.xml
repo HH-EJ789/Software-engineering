@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhej789.softwareengineering.mapper.InfoMapper_hjt">
+    <!--查询个人所有发布的信息数量-->
+    <select id="getInfoCount" resultType="Integer">
+       select count(*) from info,member where info.public_member_id = member.member_id
+    </select>
+    <!--对个人发布的信息数量进行分页查询-->
+    <select id="getInfo" resultType="com.hhej789.softwareengineering.bean.Info">
+        select * from info,member where info.public_member_id = member.member_id limit ${(page - 1)*10},
+        <choose>
+            <when test="(count % 10 != 10) and (page == count / 10 + 1)">
+                ${count % 10}
+            </when>
+            <otherwise>
+                10
+            </otherwise>
+        </choose>
+    </select>
+</mapper>
