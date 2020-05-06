@@ -2,7 +2,6 @@ package com.hhej789.softwareengineering.controller;
 
 import com.hhej789.softwareengineering.mapper.AdminMapper_gyb;
 import com.hhej789.softwareengineering.service.AdminService_gyb;
-import com.hhej789.softwareengineering.tools.MD5Util_hej;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
-import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author gybin___NN
@@ -28,6 +24,10 @@ public class AdminController_gyb {
     @Autowired
     public AdminMapper_gyb adminMapper_gyb;
 
+    /***
+     *
+     * @return
+     */
 
     @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.GET})
     public String Login_Null() {
