@@ -30,7 +30,7 @@
 }
 ```
 
-- 管理员分页查看已发布的信息 /getInfo
+- 管理员分页查看已发布的信息 /getInfoId
 
 ```api
 请求方式：GET
@@ -51,7 +51,7 @@
 		request_member_id:
 		exchange_good_name:
 		exchange_good_description:
-		request_status:请求状态
+		reqreuest_status:请求状态
 	]
 }
 ```

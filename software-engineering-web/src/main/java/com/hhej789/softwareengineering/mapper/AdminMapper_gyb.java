@@ -8,31 +8,33 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-/**
+import java.util.List;
+
+/**x
  * @author gybin___NN
  * @data 2020 - 04 - ${DATA} - 16:07
  */
 @Mapper
-@Component
+@Repository
+
 public interface AdminMapper_gyb {
 
-    @Select("select * from Admin where admin_id=#{admin_id}")
-    public String Login_admin(@Param("admin_id") String admin_id, @Param("password") String password);
+    /*管理员登陆*/
+    public List<Member> getMember(Integer page,Integer count);
+    public Integer getMemberbyNum();
 
-    @Select("select * from Member where member_id=#{member_id}")
-    public String Find_member(String member_id);
+    /*管理员分页查看已发布信息*/
+    public List<AdminGetInfo> getInfo(Integer page,Integer count);
+    public Integer getInfobyNum();
 
-    @Select("select * from Info where info_id=#{info_id}")
-    public String Find_info(String info_id);
+    /*管理员分页分类查看已发布信息*/
+    public List<AdminGetInfoBySort>getInfoBySort(Integer page,Integer sort_id,Integer count);
+    public Integer getInfoSortbyNum(Integer sort_id);
 
-    @Select("select * from Info RIGHT JOIN  InfoSort ON Info.sort_id = InfoSort.sort_id AND sort_name=#{sort_name}")
-    public String Find_infoBysort( String sort_id);
+    /*管理员根据用户id分页查看已发布信息*/
+    public List<AdminGetInfoByMemId>getInfoByMemId(Integer page,Integer member_id,Integer count);
+    public Integer getInfoMemIdbyNum(Integer member_id);
 
-    @Select("select * from RequestExchange where request_id=#{request_id}")
-    public String Find_request(String request_id);
-
-    @Select("select * from RequestExchange LEFT JOIN Info ON RequestExchange.info_id = Info.info_id LEFT JOIN InfoSort ON Info.sort_id = InfoSort.sort_id AND InfoSort.sort_name = #{sort_name}")
-    public String Find_requestBysort(String sort_name);
 
 
 

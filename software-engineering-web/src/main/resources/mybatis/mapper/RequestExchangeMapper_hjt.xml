@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhej789.softwareengineering.mapper.RequestExchangeMapper_hjt">
+    <!--插入交换信息表-->
+    <insert id="insertRequestExchange" useGeneratedKeys="true" keyProperty="request_id">
+            insert into RequestExchange(request_member_id,info_id,exchange_good_id)
+            values (#{request_member_id},#{info_id},#{exchange_good_id})
+    </insert>
+    <!--查询个人所有发布的信息数量-->
+    <select id="getChangeCount" resultType="Integer">
+       select count(*) from info,RequestExchange where info.info_id = RequestExchange.info_id
+    </select>
+    <!--对个人发布的信息数量进行分页查询-->
+    <select id="getInfo_change" resultType="com.hhej789.softwareengineering.bean.InfoChange">
+        select * from info,RequestExchange where info.info_id = RequestExchange.info_id limit ${(page - 1)*10},
+        <choose>
+            <when test="(count % 10 != 10) and (page == count / 10 + 1)">
+                ${count % 10}
+            </when>
+            <otherwise>
+                10
+            </otherwise>
+        </choose>
+    </select>
+</mapper>
