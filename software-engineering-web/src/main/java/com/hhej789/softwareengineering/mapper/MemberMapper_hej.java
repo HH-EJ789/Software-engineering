@@ -23,7 +23,6 @@ public interface MemberMapper_hej {
                         "values (#{password}, #{member_name}, #{wechat_id}, #{phone_num}, DATE_FORMAT(now(),\"%Y-%m-%d %T\"))")
     public void register(String password, String member_name, String wechat_id, String phone_num);
 
-
     //用户登录，获取用户信息进行匹配
     @Select("select * from Member where member_name=#{member_name}")
     public Member getUser(String member_name);
