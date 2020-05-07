@@ -42,9 +42,7 @@ public class GoodsController_hjt {
             e.printStackTrace();
             map.put("msg", "插入失败！");
         }
-
         return map;
-
     }
 
 }

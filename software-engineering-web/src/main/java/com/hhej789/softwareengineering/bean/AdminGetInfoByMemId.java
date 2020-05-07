@@ -22,4 +22,5 @@ public class AdminGetInfoByMemId {
     private String exchange_good_name;
     private String exchange_good_description;
     private Integer request_status;
+
 }

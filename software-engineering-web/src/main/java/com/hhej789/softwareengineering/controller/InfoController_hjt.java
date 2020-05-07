@@ -49,7 +49,7 @@ public class InfoController_hjt {
         return map;
     }
 
-    //审核信息
+    //发布用户审核交换请求
     @PutMapping("/member/checkRequest")
     public HashMap<String, Object> checkRequest(RequestExchange requestExchange) {
 

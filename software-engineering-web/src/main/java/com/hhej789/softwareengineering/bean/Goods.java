@@ -18,4 +18,5 @@ public class Goods {
     private Integer owner_id;
     private Integer status;
     private Integer is_public_or_request;
+
 }

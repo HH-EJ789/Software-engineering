@@ -20,6 +20,7 @@ public interface InfoMapper_hjt {
                             "(#{sort_id}, #{public_member_id}, #{good_id}, #{status}, #{scan_num}, #{public_date})")
     public void publishInfo(Info info);
 
+    //获取发布信息表的状态
     @Select("select status from Info where info_id=#{info_id}")
     public Integer getInfoStatus(Integer info_id);
 

@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class InfoChange {
+
     private Integer info_id;
     private Integer sort_id;
     private Integer public_member_id;
@@ -14,4 +15,5 @@ public class InfoChange {
     private Integer request_id;
     private Integer request_member_id;
     private Integer exchange_good_id;
+
 }

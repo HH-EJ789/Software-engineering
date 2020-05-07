@@ -35,7 +35,4 @@ public interface AdminMapper_gyb {
     public List<AdminGetInfoByMemId>getInfoByMemId(Integer page,Integer member_id,Integer count);
     public Integer getInfoMemIdbyNum(Integer member_id);
 
-
-
-
 }

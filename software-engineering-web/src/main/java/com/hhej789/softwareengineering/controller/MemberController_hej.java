@@ -31,7 +31,7 @@ public class MemberController_hej {
     RedisTemplate redisTemplate;
 
     //测试
-    @GetMapping("test")
+    @GetMapping("/test")
     public void test() {
 
     }

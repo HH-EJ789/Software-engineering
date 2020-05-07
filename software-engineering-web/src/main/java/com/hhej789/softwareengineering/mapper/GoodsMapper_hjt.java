@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface GoodsMapper_hjt {
 
-
     //用户上传闲置物品
     @Options(useGeneratedKeys = true, keyProperty = "good_id")
     @Insert("insert into Goods(good_name, good_description, owner_id, status) values (#{good_name}, #{good_description}, #{owner_id}, #{status})")
@@ -39,4 +38,5 @@ public interface GoodsMapper_hjt {
     @Update("update Goods set status=#{status} where good_id=#{good_id}")
     //设置闲置交换状态
     public void setGoodStatus(Integer good_id, Integer status);
+
 }
