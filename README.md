@@ -21,7 +21,7 @@
 - 管理员分页查看用户信息 /getMember
 
 ```api
-请求方式：GET
+请求方式：POST
 入参：page
 出参：
 {
@@ -33,7 +33,7 @@
 - 管理员分页查看已发布的信息 /getInfo
 
 ```api
-请求方式：GET
+请求方式：POST
 入参：page
 出参：
 {
@@ -59,7 +59,7 @@
 - 管理员分页分类查看已发布的信息 /getInfoBySort
 
 ```api
-请求方式：GET
+请求方式：POST
 入参：page、sort_id
 出参：
 {
@@ -85,7 +85,7 @@
 - 管理员根据用户id分页查看用户发布的信息 /getInfoByMemId
 
 ```api
-请求方式：GET
+请求方式：POST
 入参：page、member_id
 出参：
 {

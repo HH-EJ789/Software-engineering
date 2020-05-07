@@ -37,7 +37,7 @@ public class MemberController_hej {
     }
 
     //用户注册
-    @PostMapping("/register")
+    @PostMapping("/member/register")
     public HashMap<String,Object> register(Member member) {
 
         HashMap map = new HashMap();
@@ -65,7 +65,7 @@ public class MemberController_hej {
     }
 
     //用户登录
-    @PostMapping("/login")
+    @PostMapping("/member/login")
     public HashMap<String,Object> login(Member member) {
 
         HashMap map = new HashMap();
@@ -102,7 +102,7 @@ public class MemberController_hej {
     }
 
     //用户注销
-    @PostMapping("/loginOut")
+    @PostMapping("/member/loginOut")
     public HashMap<String,Object> loginOut(@RequestHeader("token") String token) {
 
         HashMap map = new HashMap();
