@@ -22,9 +22,9 @@ public class MemberController_lzr {
     MemberMapper_lzr memberMapper_lzr;
 
 
-    //发布信息用户查看成交用户信息 已完成
+    //发布信息用户查看成交用户信息 已完成 通过测试
     @GetMapping("/member/getByInfoId/getDealMem")
-    public Map<String ,Object>   getInfoDeal(@RequestParam("info_id") Integer id)
+    public Map<String ,Object> getInfoDeal(@RequestParam("info_id") Integer id)
     {
         Map map = new HashMap();
         try
@@ -39,7 +39,7 @@ public class MemberController_lzr {
         return map;
     }
 
-    //用户分页查看个人发布的信息 已完成
+    //用户分页查看个人发布的信息 已完成 通过测试
     @GetMapping("/member/getInfoById")
     public Map<String,Object> getInfoPublic(@RequestParam("page") Integer page,@RequestParam("public_member_id") Integer id)
     {
@@ -55,6 +55,5 @@ public class MemberController_lzr {
         }
         return map;
     }
-
 
 }

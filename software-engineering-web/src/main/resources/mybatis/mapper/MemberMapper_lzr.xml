@@ -48,7 +48,7 @@ WHERE
     </select>
 
     <!--    用户查看成交用户信息-->
-    <select id="getInfoByDealId" resultType="com.hhej789.softwareengineering.bean.Member">   <!--    用户查看成交用户信息-->
+    <select id="getInfoByDealId" resultType="com.hhej789.softwareengineering.bean.GetDealMem">   <!--    用户查看成交用户信息-->
         SELECT
             member_name,
             wechat_id,
