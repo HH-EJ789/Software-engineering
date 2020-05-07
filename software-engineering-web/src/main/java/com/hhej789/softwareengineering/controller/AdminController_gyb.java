@@ -25,6 +25,7 @@ public class AdminController_gyb {
     @Autowired
     AdminMapper_gyb adminMapper_gyb;
 
+    //管理员分页查看用户信息
     @GetMapping("/admin/getMember")
     public Map<String, Object> getMember(@RequestParam("page") Integer page) {
         Map map = new HashMap();
@@ -35,12 +36,12 @@ public class AdminController_gyb {
         } catch (Exception e) {
             System.out.println(e);
             map.put("msg", "查询失败");
-
         }
         return map;
 
     }
 
+    //管理员分页查看已发布的信息
     @GetMapping("/admin/getInfo")
     public Map<String, Object> getInfo(@RequestParam("page") Integer page) {
         Map map = new HashMap();
@@ -56,8 +57,8 @@ public class AdminController_gyb {
 
     }
 
+    //管理员分页分类查看已发布的信息
     @GetMapping("/admin/getInfoBySort")
-
     public Map<String, Object> getInfoBySort(@RequestParam("page") Integer page,@RequestParam("sort_id") Integer sort_id) {
         Map map = new HashMap();
         try {
@@ -72,8 +73,8 @@ public class AdminController_gyb {
         return map;
     }
 
+    //管理员根据用户id分页查看用户发布的信息
     @GetMapping("/admin/getInfoByMemId")
-
     public Map<String, Object> getInfoByMemId(@RequestParam("page") Integer page,@RequestParam("member_id") Integer member_id) {
         Map map = new HashMap();
         try {
