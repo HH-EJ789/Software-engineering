@@ -25,8 +25,6 @@ public class AdminController_gyb {
     @Autowired
     AdminMapper_gyb adminMapper_gyb;
 
-
-
     @GetMapping("/admin/getMember")
     public Map<String, Object> getMember(@RequestParam("page") Integer page) {
         Map map = new HashMap();

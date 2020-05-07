@@ -14,6 +14,7 @@ public class Info {
     private Integer public_member_id;
     private Integer good_id;
     private Integer status;
+    private String public_date;
     private Integer scan_num;
     private Integer deal_member_id;
 

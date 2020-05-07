@@ -17,4 +17,5 @@ public class Goods {
     private String good_description;
     private Integer owner_id;
     private Integer status;
+    private Integer is_public_or_request;
 }

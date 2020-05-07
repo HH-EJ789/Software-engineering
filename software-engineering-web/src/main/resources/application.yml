@@ -19,7 +19,10 @@ spring:
         max-active: 8
         max-wait: 1ms
       shutdown-timeout: 100ms
-
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml

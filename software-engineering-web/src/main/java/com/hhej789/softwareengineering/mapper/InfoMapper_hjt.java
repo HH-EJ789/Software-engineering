@@ -1,35 +1,30 @@
 package com.hhej789.softwareengineering.mapper;
 
-import com.hhej789.softwareengineering.bean.Goods;
 import com.hhej789.softwareengineering.bean.Info;
-import com.hhej789.softwareengineering.bean.InfoSort;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
-import org.springframework.stereotype.Repository;
+import com.hhej789.softwareengineering.bean.RequestExchange;
+import org.apache.ibatis.annotations.*;
 
-import java.util.List;
+import org.springframework.stereotype.Repository;
 
 @Mapper
 @Repository
 public interface InfoMapper_hjt {
 
-    //查询所有发布信息的数量
-    public Integer getInfoCount();
-    //分页查看个人发布的信息
-    public List<Info> getInfo(Integer page,Integer count);
+    //更新信息表状态
+    @Update("update Info set deal_member_id=#{deal_member_id}, `status`=1 where info_id=#{info_id}")
+    public void checkRequestI(Integer info_id, Integer deal_member_id);
 
-    @Update("update RequestExchange set status=#{status} where request_id=#{request_id}")
-    public void updateR(Integer request_id, Integer status);
+    //用户发布信息
+    @Options(useGeneratedKeys = true, keyProperty = "info_id")
+    @Insert("insert into Info(sort_id, public_member_id, good_id, status, scan_num, public_date) values " +
+                            "(#{sort_id}, #{public_member_id}, #{good_id}, #{status}, #{scan_num}, #{public_date})")
+    public void publishInfo(Info info);
 
-    @Select("select request_member_id from RequestExchange where request_id=#{request_id}")
-    public Integer selectRidfromR(Integer request_id);
+    @Select("select status from Info where info_id=#{info_id}")
+    public Integer getInfoStatus(Integer info_id);
 
-    @Update("update Info set deal_member_id=#{deal_member_id} and status=1 where info_id=#{info_id}")
-    public void updateI(Integer info_id, Integer deal_member_id);
-
-    @Insert("insert into info(sort_id,public_member_id,good_id)values(#{sort_id},#{public_member_id},#{good_id})")
-    public void insertInfo(Integer sort_id,Integer public_member_id,Integer good_id);
+    //根据信息表id查询发布商品id
+    @Select("select good_id from Info where info_id=#{info_id}")
+    public Integer getGoodIdByInfoId(Integer info_id);
 
 }
