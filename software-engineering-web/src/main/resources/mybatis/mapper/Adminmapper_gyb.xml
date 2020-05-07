@@ -145,4 +145,9 @@
             </otherwise>
         </choose>
     </select>
+
+    <!--管理员登陆-->
+    <select id="getAdmin" resultType="com.hhej789.softwareengineering.bean.Admin">
+        select * from Admin where admin_id=#{admin_id}
+    </select>
 </mapper>

@@ -31,4 +31,7 @@ public interface AdminMapper_gyb {
     public List<AdminGetInfoByMemId>getInfoByMemId(Integer page,Integer member_id,Integer count);
     public Integer getInfoMemIdbyNum(Integer member_id);
 
+    /*管理员登陆*/
+    public Admin getAdmin(String admin_id);
+
 }
